@@ -11,9 +11,11 @@ Create Table school(
 );
 
 Alter Table school
-Alter Column name rename to school_name;
-Alter Column address rename to school_address;
-Alter Column phone_number rename to scholl_phone_number;
+Rename Column name to school_name;
+Alter Table school
+Rename Column address to school_address;
+Alter Table school
+Rename Column phone_number to scholl_phone_number;
 
 Alter Table school rename to schools;
 
@@ -221,8 +223,10 @@ Create Table attendance(
 );
 
 Alter Table attendance
-Add Column school_id int References school(id)
+Add Column school_id int References school(id);
+Alter Table attendance
 Add Column teacher_id int References teacher(id);
+Alter Table attendance
 Drop Column teacher_id;
 
 Insert Into attendance(student_id, class_id) values
